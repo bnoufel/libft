@@ -12,7 +12,7 @@
 
 #include "str.h"
 
-char		*ft_strpbrk(const char *s, const char *charset)
+char	*ft_strpbrk(const char *s, const char *charset)
 {
 	size_t	i;
 	size_t	len;
@@ -22,7 +22,8 @@ char		*ft_strpbrk(const char *s, const char *charset)
 	len = ft_strlen(charset);
 	while (i < len)
 	{
-		if ((ret = ft_strchr(s, charset[i])))
+		ret = ft_strchr(s, charset[i]);
+		if (ret)
 			return (ret);
 		i++;
 	}

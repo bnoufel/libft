@@ -21,18 +21,18 @@
 **	if allocate fail.
 */
 
-static int		spacetrim(char c)
+static int	spacetrim(char c)
 {
 	if (c == ' ' || c == '\n' || c == '\t')
 		return (1);
 	return (0);
 }
 
-char			*ft_strtrim(char const *s)
+char	*ft_strtrim(char const *s)
 {
-	size_t		len;
-	size_t		start;
-	char		*str;
+	size_t	len;
+	size_t	start;
+	char	*str;
 
 	len = ft_strlen(s) - 1;
 	start = 0;
@@ -40,7 +40,8 @@ char			*ft_strtrim(char const *s)
 		start++;
 	while (spacetrim(s[len]) && s[start])
 		len--;
-	if (!(str = ft_strsub(s, start, (len - start) + 1)))
+	str = ft_strsub(s, start, (len - start) + 1);
+	if (!str)
 		return (NULL);
 	return (str);
 }

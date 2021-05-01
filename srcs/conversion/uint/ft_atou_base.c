@@ -18,7 +18,7 @@
 **		representation.
 */
 
-uint32_t		ft_atou_base(const char *str, int8_t base)
+uint32_t	ft_atou_base(const char *str, int8_t base)
 {
 	return (ft_atoull_base(str, base));
 }

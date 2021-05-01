@@ -18,7 +18,7 @@
 **		of the string pointed to by str to long long representation.
 */
 
-int64_t		ft_atoll(const char *str)
+int64_t	ft_atoll(const char *str)
 {
 	return (ft_atoll_base(str, 10));
 }

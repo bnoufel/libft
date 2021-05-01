@@ -25,10 +25,10 @@
 **  occurrence of needle is returned.
 */
 
-char		*ft_strcasestr(const char *haystack, const char *needle)
+char	*ft_strcasestr(const char *haystack, const char *needle)
 {
-	size_t		i;
-	size_t		j;
+	size_t	i;
+	size_t	j;
 
 	i = 0;
 	if (!needle)
@@ -37,7 +37,7 @@ char		*ft_strcasestr(const char *haystack, const char *needle)
 	{
 		j = 0;
 		while (needle[j]
-				&& ft_tolower(haystack[i + j]) == ft_tolower(needle[j]))
+			&& ft_tolower(haystack[i + j]) == ft_tolower(needle[j]))
 			j++;
 		if (!needle[j])
 			return ((char *)haystack + i);

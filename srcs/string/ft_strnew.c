@@ -20,11 +20,12 @@
 **	if allocate fail.
 */
 
-char		*ft_strnew(size_t size)
+char	*ft_strnew(size_t size)
 {
 	char	*str;
 
-	if (!(str = (char *)ft_memalloc(sizeof(char) * (size + 1))))
+	str = (char *)ft_memalloc(sizeof(char) * (size + 1));
+	if (!str)
 		return (NULL);
 	return (str);
 }

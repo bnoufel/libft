@@ -6,7 +6,7 @@
 /*   By: bnoufel <bnoufel@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/02/08 16:14:33 by bnoufel           #+#    #+#             */
-/*   Updated: 2020/02/08 19:49:38 by bnoufel          ###   ########.fr       */
+/*   Updated: 2021/05/01 16:17:12 by bnoufel          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,7 +27,7 @@
 
 char	*ft_itoa_base(int32_t n, int8_t base)
 {
-	if (n == INT_MIN)
+	if (n == INT_MIN && base == 10)
 		return (ft_strdup("-2147483648"));
 	return (ft_lltoa_base(n, base));
 }

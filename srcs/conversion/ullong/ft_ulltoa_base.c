@@ -38,7 +38,8 @@ char	*ft_ulltoa_base(uint64_t n, int8_t base)
 		return (ft_strdup("0"));
 	ft_strncpy(tab, "0123456789ABCDEF", 17);
 	len = ft_ullonglen_base(n, base) + 1;
-	if (!(str = ft_strnew(len + 1)))
+	str = ft_strnew(len + 1);
+	if (!str)
 		return (NULL);
 	while (len--)
 	{

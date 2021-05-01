@@ -17,7 +17,7 @@
 **		of the string pointed to by str to long representation.
 */
 
-ssize_t		ft_atol(const char *str)
+ssize_t	ft_atol(const char *str)
 {
 	return (ft_atoll(str));
 }

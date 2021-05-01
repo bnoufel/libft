@@ -23,7 +23,7 @@
 **		and returns non-zero if the character tests true.
 */
 
-int		ft_iscntrl(int c)
+int	ft_iscntrl(int c)
 {
 	return (!ft_isprint(c));
 }

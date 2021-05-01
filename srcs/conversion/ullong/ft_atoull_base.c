@@ -18,15 +18,15 @@
 **			representation.
 */
 
-static int		nbr_in_base(char c, int8_t base)
+static int	nbr_in_base(char c, int8_t base)
 {
 	if (base <= 10)
 		return (c >= '0' && c <= '9');
 	return ((c >= '0' && c <= '9') || (c >= 'A' && c <= ('A' + base - 10))
-			|| (c >= 'a' && c <= ('a' + base - 10)));
+		|| (c >= 'a' && c <= ('a' + base - 10)));
 }
 
-static void		convert_base(char c, int8_t base, uint64_t *nb)
+static void	convert_base(char c, int8_t base, uint64_t *nb)
 {
 	if (c >= 'A' && c <= 'F')
 		(*nb) = ((*nb) * base) + (c - 'A' + 10);
@@ -36,7 +36,7 @@ static void		convert_base(char c, int8_t base, uint64_t *nb)
 		(*nb) = ((*nb) * base) + (c - 48);
 }
 
-uint64_t		ft_atoull_base(const char *str, uint8_t base)
+uint64_t	ft_atoull_base(const char *str, uint8_t base)
 {
 	uint64_t	nb;
 	int			i;

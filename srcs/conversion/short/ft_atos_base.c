@@ -17,7 +17,7 @@
 **		of the string pointed to by str with a base to short representation.
 */
 
-int16_t		ft_atos_base(const char *str, int8_t base)
+int16_t	ft_atos_base(const char *str, int8_t base)
 {
 	return (ft_atoll_base(str, base));
 }

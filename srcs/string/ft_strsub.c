@@ -22,11 +22,12 @@
 **	if allocate fail.
 */
 
-char		*ft_strsub(char const *s, uint32_t start, size_t n)
+char	*ft_strsub(char const *s, uint32_t start, size_t n)
 {
 	char	*str;
 
-	if (!(str = ft_strnew(n + 1)))
+	str = ft_strnew(n + 1);
+	if (!str)
 		return (NULL);
 	ft_strncpy(str, s + start, n);
 	return (str);

@@ -24,7 +24,7 @@
 **  occurrence of needle is returned.
 */
 
-char			*ft_strstr(const char *haystack, const char *needle)
+char	*ft_strstr(const char *haystack, const char *needle)
 {
 	const void	*big = (const void *)haystack;
 	const void	*little = (const void *)needle;

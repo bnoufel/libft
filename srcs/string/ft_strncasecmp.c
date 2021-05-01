@@ -33,8 +33,8 @@
 
 static size_t	ft_get_big_len(const char *s1, const char *s2, size_t n)
 {
-	size_t		ls1;
-	size_t		ls2;
+	size_t	ls1;
+	size_t	ls2;
 
 	ls1 = ft_strlen(s1);
 	ls2 = ft_strlen(s2);
@@ -45,12 +45,19 @@ static size_t	ft_get_big_len(const char *s1, const char *s2, size_t n)
 	return (n);
 }
 
-int				ft_strncasecmp(const char *s1, const char *s2, size_t n)
+static int	return_result_strcasecmp(uint8_t *str1, uint8_t *str2, size_t i)
 {
-	size_t		len;
-	size_t		i;
-	uint8_t		*str1;
-	uint8_t		*str2;
+	if (ft_tolower(str1[i]) < ft_tolower(str2[i]))
+		return (-1);
+	return (1);
+}
+
+int	ft_strncasecmp(const char *s1, const char *s2, size_t n)
+{
+	size_t	len;
+	size_t	i;
+	uint8_t	*str1;
+	uint8_t	*str2;
 
 	str1 = (uint8_t *)s1;
 	str2 = (uint8_t *)s2;
@@ -61,7 +68,7 @@ int				ft_strncasecmp(const char *s1, const char *s2, size_t n)
 	while (i < len)
 	{
 		if (ft_tolower(str1[i]) != ft_tolower(str2[i]))
-			return (ft_tolower(str1[i]) < ft_tolower(str2[i]) ? -1 : 1);
+			return (return_result_strcasecmp(str1, str2, i));
 		i++;
 	}
 	return (0);

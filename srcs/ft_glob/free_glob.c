@@ -12,9 +12,9 @@
 
 #include "ft_glob_internal.h"
 
-void			ft_globfree(t_glob *glob)
+void	ft_globfree(t_glob *glob)
 {
-	size_t		i;
+	size_t	i;
 
 	i = 0;
 	while (i < glob->size)

@@ -11,8 +11,6 @@
 /* ************************************************************************** */
 
 #include "str.h"
-#include "mem.h"
-#include <stdlib.h>
 
 /*
 **	@param const char *s
@@ -21,13 +19,14 @@
 **	The pointer may subsequently be used as an argument to the function free.
 */
 
-char			*ft_strdup(const char *s1)
+char	*ft_strdup(const char *s1)
 {
-	size_t		len;
-	char		*str;
+	size_t	len;
+	char	*str;
 
 	len = ft_strlen(s1);
-	if (!(str = ft_strnew(len + 1)))
+	str = ft_strnew(len + 1);
+	if (!str)
 		return (NULL);
 	ft_strncpy(str, s1, len);
 	return (str);

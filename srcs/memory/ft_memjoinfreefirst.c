@@ -27,14 +27,15 @@
 **	if allocate fail.
 */
 
-void			*ft_memjoinfreefirst(void *s1, size_t l1, void *s2, size_t l2)
+void	*ft_memjoinfreefirst(void *s1, size_t l1, void *s2, size_t l2)
 {
-	void		*res;
-	char		*tmp;
+	void	*res;
+	char	*tmp;
 
 	if (l2 == 0 || !s1 || !s2)
 		return (s1);
-	if (!(res = malloc(l1 + l2)))
+	res = malloc(l1 + l2);
+	if (!res)
 	{
 		free(s1);
 		s1 = NULL;

@@ -22,12 +22,13 @@
 **	@return
 */
 
-char			*ft_strmapi(char const *s, char (*f)(unsigned int, char))
+char	*ft_strmapi(char const *s, char (*f)(unsigned int, char))
 {
 	uint32_t	i;
 	char		*str;
 
-	if (!(str = ft_strnew(ft_strlen(s) + 1)))
+	str = ft_strnew(ft_strlen(s) + 1);
+	if (!str)
 		return (NULL);
 	i = 0;
 	while (s[i])

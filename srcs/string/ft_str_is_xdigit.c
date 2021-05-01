@@ -21,7 +21,7 @@
 **	false and returns non-zero if one of character tests true.
 */
 
-int		ft_str_is_xdigit(const char *str)
+int	ft_str_is_xdigit(const char *str)
 {
 	size_t	i;
 

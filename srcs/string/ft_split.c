@@ -20,10 +20,10 @@
 **	@return NULL if allocate failed or return the new tab
 */
 
-static size_t		ft_count_words(char const *s, char c)
+static size_t	ft_count_words(char const *s, char c)
 {
-	size_t			words;
-	size_t			i;
+	size_t	words;
+	size_t	i;
 
 	words = 0;
 	i = 0;
@@ -38,23 +38,21 @@ static size_t		ft_count_words(char const *s, char c)
 	return (words);
 }
 
-char				**ft_split(const char *str, char c)
+char 	**split(const char *str, char c, char **tab)
 {
-	char			**tab;
-	size_t			j;
-	size_t			i;
-	size_t			len;
+	size_t	j;
+	size_t	i;
+	size_t	len;
 
 	j = 0;
 	i = 0;
-	if (!(tab = ft_tabnew(ft_count_words(str, c) + 1)))
-		return (NULL);
 	while (str[i])
 	{
 		if (str[i] != c)
 		{
 			len = ft_strlen_c(str + i, c);
-			if (!(tab[j] = ft_strsub(str + i, 0, len)))
+			tab[j] = ft_strsub(str + i, 0, len);
+			if (!tab[j])
 				return (NULL);
 			i += len;
 			j++;
@@ -64,4 +62,14 @@ char				**ft_split(const char *str, char c)
 	}
 	tab[j] = 0;
 	return (tab);
+}
+
+char	**ft_split(const char *str, char c)
+{
+	char	**tab;
+
+	tab = ft_tabnew(ft_count_words(str, c) + 1);
+	if (!tab)
+		return (NULL);
+	return (split(str, c, tab));
 }

@@ -22,7 +22,7 @@
 **	terminating NUL character.
 */
 
-size_t		ft_strlen_c(const char *str, const char c)
+size_t	ft_strlen_c(const char *str, const char c)
 {
 	size_t	i;
 

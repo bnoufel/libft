@@ -18,7 +18,7 @@
 **	 	to the corresponding upper-case letter.
 */
 
-char		*ft_strupcase(char *str)
+char	*ft_strupcase(char *str)
 {
 	size_t	i;
 

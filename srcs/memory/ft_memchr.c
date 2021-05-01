@@ -23,10 +23,10 @@
 **		or NULL if no such byte exists within n bytes.
 */
 
-void			*ft_memchr(const void *s, int c, size_t n)
+void	*ft_memchr(const void *s, int c, size_t n)
 {
-	uint8_t		*s1;
-	size_t		i;
+	uint8_t	*s1;
+	size_t	i;
 
 	i = 0;
 	s1 = (uint8_t *)s;

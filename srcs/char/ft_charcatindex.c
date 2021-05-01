@@ -19,7 +19,7 @@
 **	@param c the char to concatenate
 */
 
-void		ft_charcatindex(char *buf, size_t *index, const char c)
+void	ft_charcatindex(char *buf, size_t *index, const char c)
 {
 	(buf)[(*index)] = c;
 	(*index)++;

@@ -17,7 +17,7 @@
 **		of the string pointed to by str to unsigned long representation.
 */
 
-size_t		ft_atoul(const char *str)
+size_t	ft_atoul(const char *str)
 {
 	return (ft_atoull(str));
 }

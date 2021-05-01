@@ -21,9 +21,9 @@
 **	terminating NULL character.
 */
 
-size_t			ft_tablen(char **s)
+size_t	ft_tablen(char **s)
 {
-	size_t		i;
+	size_t	i;
 
 	i = 0;
 	while (s[i])

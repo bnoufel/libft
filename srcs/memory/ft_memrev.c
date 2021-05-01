@@ -16,11 +16,11 @@
 **	ft_memrev reverse n bytes from the pointer.
 */
 
-void			*ft_memrev(void *s, size_t n)
+void	*ft_memrev(void *s, size_t n)
 {
-	size_t		i;
-	char		*tmp;
-	char		c;
+	size_t	i;
+	char	*tmp;
+	char	c;
 
 	tmp = s;
 	i = -1;

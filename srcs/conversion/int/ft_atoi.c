@@ -17,7 +17,7 @@
 **		of the string pointed to by str to int representation.
 */
 
-int32_t		ft_atoi(const char *str)
+int32_t	ft_atoi(const char *str)
 {
 	return (ft_atoll(str));
 }

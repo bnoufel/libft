@@ -23,10 +23,10 @@
 **	The memmove() function returns the original value of dst.
 */
 
-void			*ft_memmove(void *dst, const void *src, size_t n)
+void	*ft_memmove(void *dst, const void *src, size_t n)
 {
-	int8_t		*s1;
-	int8_t		*s2;
+	int8_t	*s1;
+	int8_t	*s2;
 
 	s1 = (int8_t *)dst;
 	s2 = (int8_t *)src;

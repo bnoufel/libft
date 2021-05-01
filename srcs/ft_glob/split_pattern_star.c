@@ -35,12 +35,14 @@ static int	split_before_star(char *pattern, t_parse_glob **glob)
 		i--;
 	if (i < 0)
 	{
-		if (!((*glob)->before = ft_strdup("")))
+		(*glob)->before = ft_strdup("");
+		if (!(*glob)->before)
 			return (EXIT_FAILURE);
 	}
 	else
 	{
-		if (!((*glob)->before = ft_strndup(pattern, i + 1)))
+		(*glob)->before = ft_strndup(pattern, i + 1);
+		if (!(*glob)->before)
 			return (EXIT_FAILURE);
 	}
 	return (EXIT_SUCCESS);
@@ -63,7 +65,8 @@ static int	split_middle_star(char *pattern, t_parse_glob **glob)
 		end++;
 	if (pattern[i] == '/')
 		i++;
-	if (!((*glob)->middle = ft_strsub(pattern, i, end)))
+	(*glob)->middle = ft_strsub(pattern, i, end);
+	if (!(*glob)->middle)
 		return (EXIT_FAILURE);
 	return (EXIT_SUCCESS);
 }
@@ -77,12 +80,13 @@ static int	split_after_star(char *pattern, t_parse_glob **glob)
 	i = find_star(pattern);
 	while (pattern[i] && pattern[i] != '/')
 		i++;
-	if (!((*glob)->after = ft_strsub(pattern, i, j - i)))
+	(*glob)->after = ft_strsub(pattern, i, j - i);
+	if (!(*glob)->after)
 		return (EXIT_FAILURE);
 	return (EXIT_SUCCESS);
 }
 
-int			split_pattern_star(char *pattern, t_parse_glob *glob)
+int	split_pattern_star(char *pattern, t_parse_glob *glob)
 {
 	if (split_before_star(pattern, &glob))
 		return (EXIT_FAILURE);

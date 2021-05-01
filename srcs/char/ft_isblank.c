@@ -20,7 +20,7 @@
 **		and returns non-zero if the character tests true.
 */
 
-int		ft_isblank(int c)
+int	ft_isblank(int c)
 {
 	if (c == ' ' || c == '\t')
 		return (1);

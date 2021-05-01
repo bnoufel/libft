@@ -17,7 +17,7 @@
 **		of the string pointed to by str with a base to long representation.
 */
 
-ssize_t		ft_atol_base(const char *str, int8_t base)
+ssize_t	ft_atol_base(const char *str, int8_t base)
 {
 	return (ft_atoll_base(str, base));
 }

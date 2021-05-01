@@ -19,7 +19,7 @@
 **	Calculate size of value and return it
 */
 
-uint64_t			ft_ullonglen_base(uint64_t n, int base)
+uint64_t	ft_ullonglen_base(uint64_t n, int base)
 {
 	uint64_t		len;
 
@@ -28,7 +28,11 @@ uint64_t			ft_ullonglen_base(uint64_t n, int base)
 		return (0);
 	if (!n)
 		return (1);
-	while (n /= base)
+	n /= base;
+	while (n)
+	{
+		n /= base;
 		len++;
+	}
 	return (len);
 }

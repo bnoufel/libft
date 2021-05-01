@@ -23,7 +23,7 @@
 **	The ft_strcat() functions return the pointer s1.
 */
 
-char		*ft_strcat(char *s1, const char *s2)
+char	*ft_strcat(char *s1, const char *s2)
 {
 	size_t	len1;
 	size_t	len2;

@@ -17,7 +17,7 @@
 **		of the string pointed to by str to unsigned int representation.
 */
 
-uint32_t		ft_atou(const char *str)
+uint32_t	ft_atou(const char *str)
 {
 	return (ft_atoull(str));
 }

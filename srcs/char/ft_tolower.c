@@ -20,7 +20,7 @@
 **		as an unsigned char or the value of EOF.
 */
 
-int		ft_tolower(int c)
+int	ft_tolower(int c)
 {
 	if (ft_isupper(c))
 		return (c + 32);

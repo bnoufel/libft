@@ -28,7 +28,7 @@
 **	@return
 */
 
-uint32_t		ft_strlcpy(char *dest, char *src, uint32_t size)
+uint32_t	ft_strlcpy(char *dest, char *src, uint32_t size)
 {
 	uint32_t	count;
 	uint32_t	i;

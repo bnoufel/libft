@@ -26,9 +26,9 @@
 **	The ft_strncpy functions return dst.
 */
 
-char			*ft_strncpy(char *dst, const char *src, size_t len)
+char	*ft_strncpy(char *dst, const char *src, size_t len)
 {
-	size_t		i;
+	size_t	i;
 
 	i = ft_strlen(src);
 	ft_memcpy(dst, src, len);

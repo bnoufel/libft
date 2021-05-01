@@ -17,7 +17,7 @@
 **		of the string pointed to by str with a base to int representation.
 */
 
-int32_t		ft_atoi_base(const char *str, int8_t base)
+int32_t	ft_atoi_base(const char *str, int8_t base)
 {
 	return (ft_atoll_base(str, base));
 }

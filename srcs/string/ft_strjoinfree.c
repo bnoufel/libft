@@ -26,7 +26,7 @@
 **	if allocate fail.
 */
 
-static void		free_ptr(char **s1, char **s2, short tofree)
+static void	free_ptr(char **s1, char **s2, short tofree)
 {
 	if (tofree == 1 || tofree == 3)
 		ft_strdel(s1);
@@ -34,11 +34,12 @@ static void		free_ptr(char **s1, char **s2, short tofree)
 		ft_strdel(s2);
 }
 
-char			*ft_strjoinfree(char *s1, char *s2, short tofree)
+char	*ft_strjoinfree(char *s1, char *s2, short tofree)
 {
-	char		*str;
+	char	*str;
 
-	if (!(str = ft_strjoin(s1, s2)))
+	str = ft_strjoin(s1, s2);
+	if (!str)
 	{
 		free_ptr(&s1, &s2, tofree);
 		return (NULL);

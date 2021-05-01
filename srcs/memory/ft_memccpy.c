@@ -26,11 +26,11 @@
 **	The ft_memcpy() function returns the original value of dst.
 */
 
-void			*ft_memccpy(void *dst, const void *src, int c, size_t n)
+void	*ft_memccpy(void *dst, const void *src, int c, size_t n)
 {
-	uint8_t		*s1;
-	uint8_t		*s2;
-	size_t		i;
+	uint8_t	*s1;
+	uint8_t	*s2;
+	size_t	i;
 
 	i = 0;
 	s1 = (uint8_t *)dst;

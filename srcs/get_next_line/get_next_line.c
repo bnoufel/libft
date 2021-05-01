@@ -25,47 +25,77 @@
 **	WARNING: ft_gnl use malloc. So it need to be free to avoid leaks.
 */
 
-static int			ft_read_gnl(const int fd, char **str)
+static int	allocate_str(char **str, char *buf)
 {
-	char				buf[GNL_BUFF_SIZE + 1];
-	char				*tmp;
-	int					ret;
+	char	*tmp;
+
+	tmp = *str;
+	*str = ft_strjoin(*str, buf);
+	if (!(*str))
+		return (-1);
+	ft_strdel(&tmp);
+	return (0);
+}
+
+static int	check_buf(char **str, char *buf)
+{
+	char	*tmp;
+
+	tmp = ft_strdup(buf);
+	if (!*str && !(tmp))
+		return (-1);
+	*str = tmp;
+	if (ft_strchr(buf, '\n'))
+		return (0);
+	return (1);
+}
+
+static int	ft_read_gnl(const int fd, char **str)
+{
+	char	buf[GNL_BUFF_SIZE + 1];
+	int		ret;
+	int		ret2;
 
 	if (*str && ft_strchr(*str, '\n'))
 		return (1);
-	while ((ret = read(fd, buf, GNL_BUFF_SIZE)) > 0)
+	while (1)
 	{
-		buf[ret] = '\0';
-		if (*str)
-		{
-			tmp = *str;
-			if (!(*str = ft_strjoin(*str, buf)))
-				return (-1);
-			ft_strdel(&tmp);
-		}
-		else if (!*str && !(*str = ft_strdup(buf)))
-			return (-1);
-		if (ft_strchr(buf, '\n'))
+		ret = read(fd, buf, GNL_BUFF_SIZE);
+		if (ret <= 0)
 			break ;
+		buf[ret] = '\0';
+		if (*str && allocate_str(str, buf) == -1)
+			return (-1);
+		else
+		{
+			ret2 = check_buf(str, buf);
+			if (ret2 == -1)
+				return (-1);
+			if (!ret2)
+				break ;
+		}
 	}
 	return (ret);
 }
 
-int					get_next_line(const int fd, char **line)
+int	get_next_line(const int fd, char **line)
 {
 	static char		*str = NULL;
 	char			*tmp;
 	int				ret;
 
-	if (fd < 0 || !line || (ret = ft_read_gnl(fd, (&str))) < 0)
+	ret = ft_read_gnl(fd, (&str));
+	if (fd < 0 || !line || ret < 0)
 		return (-1);
 	if (ret == 0 && !(str))
 		return (0);
-	if (!(*line = ft_strsub(str, 0, ft_strlen_c(str, '\n'))))
+	*line = ft_strsub(str, 0, ft_strlen_c(str, '\n'));
+	if (!(*line))
 		return (-1);
 	tmp = str;
-	if (!(str = ft_strsub(tmp, ft_strlen_c(tmp, '\n') + 1,
-					(ft_strlen(tmp) - ft_strlen_c(tmp, '\n')))))
+	str = ft_strsub(tmp, ft_strlen_c(tmp, '\n') + 1,
+			(ft_strlen(tmp) - ft_strlen_c(tmp, '\n')));
+	if (!str)
 		return (-1);
 	ft_strdel(&tmp);
 	if (str[0] == '\0')

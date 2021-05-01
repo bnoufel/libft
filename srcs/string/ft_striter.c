@@ -21,7 +21,7 @@
 **	@param f
 */
 
-void		ft_striter(char *s, void (*f)(char *))
+void	ft_striter(char *s, void (*f)(char *))
 {
 	size_t	i;
 

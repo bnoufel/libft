@@ -12,20 +12,16 @@
 
 #include "str.h"
 
-static void		free_ptr(char **ptr)
+char	*ft_strdupfree(char *str, char **ptr_to_free)
 {
-	ft_strdel(ptr);
-}
+	char	*new;
 
-char			*ft_strdupfree(char *str, char **ptr_to_free)
-{
-	char		*new;
-
-	if (!(new = ft_strdup(str)))
+	new = ft_strdup(str);
+	if (!new)
 	{
-		free_ptr(ptr_to_free);
+		ft_strdel(ptr_to_free);
 		return (NULL);
 	}
-	free_ptr(ptr_to_free);
+	ft_strdel(&ptr_to_free);
 	return (new);
 }

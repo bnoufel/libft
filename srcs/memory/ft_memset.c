@@ -22,10 +22,10 @@
 **	The ft_memset() function returns its first argument.
 */
 
-void			*ft_memset(void *b, int c, size_t n)
+void	*ft_memset(void *b, int c, size_t n)
 {
-	uint8_t		*str;
-	size_t		i;
+	uint8_t	*str;
+	size_t	i;
 
 	str = (uint8_t *)b;
 	i = 0;

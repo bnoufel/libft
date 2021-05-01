@@ -18,7 +18,7 @@
 **		representation.
 */
 
-uint16_t		ft_atous_base(const char *str, int8_t base)
+uint16_t	ft_atous_base(const char *str, int8_t base)
 {
 	return (ft_atoull_base(str, base));
 }

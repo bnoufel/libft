@@ -27,11 +27,11 @@
 **		depend on the sign of the returned value.
 */
 
-int				ft_memcmp(const void *s1, const void *s2, size_t n)
+int	ft_memcmp(const void *s1, const void *s2, size_t n)
 {
-	uint8_t		*p1;
-	uint8_t		*p2;
-	size_t		i;
+	uint8_t	*p1;
+	uint8_t	*p2;
+	size_t	i;
 
 	i = 0;
 	p1 = (uint8_t *)s1;
@@ -41,7 +41,11 @@ int				ft_memcmp(const void *s1, const void *s2, size_t n)
 	while (i < n)
 	{
 		if (p1[i] != p2[i])
-			return (p1[i] < p2[i] ? -1 : 1);
+		{
+			if (p1[i] < p2[i])
+				return (-1);
+			return (1);
+		}
 		i++;
 	}
 	return (0);

@@ -19,7 +19,7 @@
 **	if allocate fail.
 */
 
-char		*ft_tabtostr(char **tab)
+char	*ft_tabtostr(char **tab)
 {
 	return (ft_tabtostr_c(tab, ' '));
 }

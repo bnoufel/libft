@@ -22,17 +22,19 @@
 **	The pointer may subsequently be used as an argument to the function free.
 */
 
-char			**ft_tabndup(char **s1, size_t n)
+char	**ft_tabndup(char **s1, size_t n)
 {
-	size_t		i;
-	char		**str;
+	size_t	i;
+	char	**str;
 
 	i = 0;
-	if (!(str = ft_tabnew(n)))
+	str = ft_tabnew(n);
+	if (!str)
 		return (NULL);
 	while (i < n)
 	{
-		if (!(str[i] = ft_strdup(s1[i])))
+		str[i] = ft_strdup(s1[i]);
+		if (!str[i])
 			return (NULL);
 		i++;
 	}

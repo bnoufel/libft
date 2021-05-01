@@ -6,7 +6,7 @@
 /*   By: bnoufel <bnoufel@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/02/08 16:14:58 by bnoufel           #+#    #+#             */
-/*   Updated: 2020/02/08 19:49:38 by bnoufel          ###   ########.fr       */
+/*   Updated: 2021/05/01 17:29:21 by bnoufel          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,18 +18,22 @@
 **	Calculate size of value and return it
 */
 
-int64_t			ft_llonglen_base(int64_t n, int base)
+int64_t	ft_llonglen_base(int64_t n, int base)
 {
-	int64_t		len;
+	int64_t	len;
 
 	len = 0;
 	if (base < 2 || base > 16)
 		return (0);
 	if (!n)
 		return (1);
-	if (n < 0)
+	if (n < 0 && base == 10)
 		len++;
-	while (n /= base)
+	n /= base;
+	while (n)
+	{
+		n /= base;
 		len++;
+	}
 	return (len);
 }

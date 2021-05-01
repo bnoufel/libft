@@ -31,10 +31,10 @@
 void	*ft_memmem(const void *big, size_t big_len, const void *little,
 			size_t little_len)
 {
-	uint8_t		*haystack;
-	uint8_t		*needle;
-	size_t		i;
-	size_t		j;
+	uint8_t	*haystack;
+	uint8_t	*needle;
+	size_t	i;
+	size_t	j;
 
 	i = 0;
 	haystack = (uint8_t *)big;

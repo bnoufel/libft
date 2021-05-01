@@ -10,7 +10,6 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <stdlib.h>
 #include "str.h"
 #include "mem.h"
 
@@ -20,11 +19,12 @@
 **	always NULL terminating the copied string.
 */
 
-char			*ft_strndup(const char *s1, size_t n)
+char	*ft_strndup(const char *s1, size_t n)
 {
-	char		*str;
+	char	*str;
 
-	if (!(str = ft_strnew(n + 1)))
+	str = ft_strnew(n + 1);
+	if (!str)
 		return (NULL);
 	ft_memcpy(str, s1, n);
 	return (str);

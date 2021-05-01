@@ -27,8 +27,8 @@
 **	The ft_strncatindex functions return the pointer s1.
 */
 
-void		ft_strncatindex(char *buf, size_t *index, const char *str,
-												const size_t len)
+void	ft_strncatindex(char *buf, size_t *index, const char *str,
+					const size_t len)
 {
 	size_t	i;
 

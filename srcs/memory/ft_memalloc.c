@@ -21,11 +21,12 @@
 **		if allocate fail.
 */
 
-void		*ft_memalloc(size_t n)
+void	*ft_memalloc(size_t n)
 {
 	void	*ptr;
 
-	if (!(ptr = malloc(n)))
+	ptr = malloc(n);
+	if (!ptr)
 		return (NULL);
 	return (ft_memset(ptr, 0, n));
 }

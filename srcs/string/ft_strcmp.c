@@ -26,11 +26,11 @@
 **		is greater than `\0'.
 */
 
-int				ft_strcmp(const char *s1, const char *s2)
+int	ft_strcmp(const char *s1, const char *s2)
 {
-	size_t		ls1;
-	size_t		ls2;
-	size_t		len;
+	size_t	ls1;
+	size_t	ls2;
+	size_t	len;
 
 	ls1 = ft_strlen(s1);
 	ls2 = ft_strlen(s2);

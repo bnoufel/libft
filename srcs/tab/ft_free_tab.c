@@ -14,10 +14,10 @@
 #include "tab.h"
 #include <stdlib.h>
 
-void			ft_free_tab(char **tab)
+void	ft_free_tab(char **tab)
 {
-	size_t		i;
-	size_t		n;
+	size_t	i;
+	size_t	n;
 
 	i = 0;
 	n = ft_tablen(tab);

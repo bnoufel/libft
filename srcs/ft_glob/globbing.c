@@ -13,26 +13,31 @@
 #include "ft_glob.h"
 #include "ft_glob_internal.h"
 
-static int			set_glob(char **res, t_glob *glob)
+static int	set_glob(char **res, t_glob *glob)
 {
-	if (!(glob->res = ft_tabdup(res)))
+	if (!ft_tablen(res))
+		return (EXIT_FAILURE);
+	glob->res = ft_tabdup(res);
+	if (!glob->res)
 		return (EXIT_FAILURE);
 	glob->size = ft_tablen(res);
 	return (EXIT_SUCCESS);
 }
 
-static char			**set_glob_tab(t_data_glob *head, size_t len)
+static char	**set_glob_tab(t_data_glob *head, size_t len)
 {
-	char			**tab;
-	size_t			i;
+	char	**tab;
+	size_t	i;
 
 	i = 0;
-	if (!(tab = (char **)malloc(sizeof(char *) * (len + 1))))
+	tab = (char **)malloc(sizeof(char *) * (len + 1));
+	if (!tab)
 		return (NULL);
 	ft_bzero(tab, len + 1);
 	while (head)
 	{
-		if (!(tab[i] = ft_strdup(head->pattern)))
+		tab[i] = ft_strdup(head->pattern);
+		if (!tab[i])
 			return (NULL);
 		i++;
 		head = head->next;
@@ -41,11 +46,11 @@ static char			**set_glob_tab(t_data_glob *head, size_t len)
 	return (tab);
 }
 
-static char			**transform_lst_to_tab(t_data_glob *data)
+static char	**transform_lst_to_tab(t_data_glob *data)
 {
-	char			**tab;
-	t_data_glob		*head;
-	size_t			len;
+	char		**tab;
+	t_data_glob	*head;
+	size_t		len;
 
 	if (!data)
 	{
@@ -54,7 +59,8 @@ static char			**transform_lst_to_tab(t_data_glob *data)
 	}
 	head = data->head;
 	len = lst_data_glob_size(data);
-	if (!(tab = set_glob_tab(head, len)))
+	tab = set_glob_tab(head, len);
+	if (!tab)
 		return (NULL);
 	if (!ft_tablen(tab))
 	{
@@ -67,9 +73,9 @@ static char			**transform_lst_to_tab(t_data_glob *data)
 	return (tab);
 }
 
-static char			**parse_glob(char ***tab, size_t len, t_data_glob *data)
+static char	**parse_glob(char ***tab, size_t len, t_data_glob *data)
 {
-	size_t			i;
+	size_t	i;
 
 	i = 0;
 	while (++i < len)
@@ -95,19 +101,19 @@ static char			**parse_glob(char ***tab, size_t len, t_data_glob *data)
 	return (transform_lst_to_tab(data));
 }
 
-int					ft_glob(char *pattern, t_glob *glob)
+int	ft_glob(char *pattern, t_glob *glob)
 {
-	char			**res;
-	char			**tab;
-	size_t			len;
-	t_data_glob		*data;
+	char		**res;
+	char		**tab;
+	size_t		len;
+	t_data_glob	*data;
 
 	data = NULL;
-	if (!(tab = ft_split(pattern, ' ')))
+	tab = ft_split(pattern, ' ');
+	if (!tab)
 		return (EXIT_FAILURE);
 	len = ft_tablen(tab);
-	if (!(res = parse_glob(&tab, len, data)))
-		return (EXIT_FAILURE);
+	res = parse_glob(&tab, len, data);
 	if (set_glob(res, glob))
 	{
 		ft_free_tab(res);

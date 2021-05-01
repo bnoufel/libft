@@ -22,7 +22,7 @@
 **	if allocate fail.
 */
 
-char		*ft_substr(char const *s, uint32_t start, size_t n)
+char	*ft_substr(char const *s, uint32_t start, size_t n)
 {
 	return (ft_strsub(s, start, n));
 }

@@ -22,9 +22,9 @@
 **	1 if is equal else 0
 */
 
-int			ft_strequ(char const *s1, char const *s2)
+int	ft_strequ(char const *s1, char const *s2)
 {
-	int		res;
+	int	res;
 
 	res = ft_strcmp(s1, s2);
 	if (res == -1 || res == 1)

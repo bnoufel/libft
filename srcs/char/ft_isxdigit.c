@@ -23,7 +23,7 @@
 **		and returns non-zero if the character tests true.
 */
 
-int		ft_isxdigit(int c)
+int	ft_isxdigit(int c)
 {
 	if (ft_isdigit(c))
 		return (1);

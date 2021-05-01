@@ -18,7 +18,7 @@
 **		representation.
 */
 
-size_t		ft_atoul_base(const char *str, int8_t base)
+size_t	ft_atoul_base(const char *str, int8_t base)
 {
 	return (ft_atoull_base(str, base));
 }

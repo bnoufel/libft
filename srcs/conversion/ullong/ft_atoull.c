@@ -17,7 +17,7 @@
 **		of the string pointed to by str to unsigned long long representation.
 */
 
-uint64_t		ft_atoull(const char *str)
+uint64_t	ft_atoull(const char *str)
 {
 	uint64_t	nb;
 	int			i;

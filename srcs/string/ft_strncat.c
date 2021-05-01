@@ -26,7 +26,7 @@
 **	The ft_strncat functions return the pointer s1.
 */
 
-char		*ft_strncat(char *s1, const char *s2, size_t n)
+char	*ft_strncat(char *s1, const char *s2, size_t n)
 {
 	size_t	len1;
 	size_t	i;

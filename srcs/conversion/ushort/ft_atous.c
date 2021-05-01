@@ -17,7 +17,7 @@
 **		of the string pointed to by str to unsigned short representation.
 */
 
-uint16_t		ft_atous(const char *str)
+uint16_t	ft_atous(const char *str)
 {
 	return (ft_atoull(str));
 }

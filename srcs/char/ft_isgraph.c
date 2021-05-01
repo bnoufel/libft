@@ -20,7 +20,7 @@
 **		and returns non-zero if the character tests true.
 */
 
-int		ft_isgraph(int c)
+int	ft_isgraph(int c)
 {
 	return (c >= 33 && c <= 126);
 }

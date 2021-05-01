@@ -19,7 +19,7 @@
 **	ft_puts return a newline
 */
 
-int		ft_puts(const char *str)
+int	ft_puts(const char *str)
 {
 	if (!str)
 		ft_putendl("(null)");

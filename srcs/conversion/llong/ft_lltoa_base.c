@@ -6,13 +6,12 @@
 /*   By: bnoufel <bnoufel@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/02/08 16:15:04 by bnoufel           #+#    #+#             */
-/*   Updated: 2020/02/08 19:49:38 by bnoufel          ###   ########.fr       */
+/*   Updated: 2021/05/01 17:32:21 by bnoufel          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "conv.h"
 #include "str.h"
-#include "mem.h"
 #include <limits.h>
 
 /*
@@ -27,9 +26,21 @@
 **  @return string
 */
 
-char		*ft_lltoa_base(int64_t n, int8_t base)
+static char	*return_str(int64_t len, int64_t n, char *str, int8_t base)
 {
 	char	tab[17];
+
+	ft_strncpy(tab, "0123456789ABCDEF", 17);
+	while (n > 0)
+	{
+		str[len--] = tab[n % base];
+		n /= base;
+	}
+	return (str);
+}
+
+char	*ft_lltoa_base(int64_t n, int8_t base)
+{
 	char	*str;
 	int64_t	len;
 
@@ -40,18 +51,13 @@ char		*ft_lltoa_base(int64_t n, int8_t base)
 	if (!n)
 		return (ft_strdup("0"));
 	len = ft_llonglen_base(n, base);
-	ft_strncpy(tab, "0123456789ABCDEF", 17);
-	if (!(str = ft_strnew(len + 1)))
+	str = ft_strnew(len + 1);
+	if (!str)
 		return (NULL);
 	if (n < 0)
 	{
 		n = -n;
 		str[0] = '-';
 	}
-	while (n > 0)
-	{
-		str[len--] = tab[n % base];
-		n /= base;
-	}
-	return (str);
+	return (return_str(len, n, str, base));
 }

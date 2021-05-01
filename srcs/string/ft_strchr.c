@@ -23,9 +23,9 @@
 **		or NULL if no such byte exists within n bytes.
 */
 
-char			*ft_strchr(const char *s, int c)
+char	*ft_strchr(const char *s, int c)
 {
-	size_t		size;
+	size_t	size;
 
 	size = ft_strlen(s);
 	return (ft_memchr(s, c, size + 1));
